@@ -1,0 +1,14 @@
+.word-button {
+  margin: 3px;
+}
+.hint {
+  margin-bottom: 0px;
+}
+.options {
+  margin-top: 0px;
+  border-left: 20px solid rgba(0, 0, 0, 0.125);
+  padding-left: 3px;
+}
+.spacing {
+  width:10px;
+}

@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+        <h4>Hacker Game</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title">ROLE: The guy in the van</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Use the clues below to select the right password. Finding the right one will help the guy on the inside steal the most valuable gifts. Get it wrong too many times and you'll have to start over with a new password.</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div [ngClass]="{
+              'alert': 'true',
+              'alert-warning': status === 'warn',
+              'alert-primary': status === 'ok',
+              'alert-success': status === 'pass',
+              'alert-danger': status === 'fail'
+            }">{{message}}</div>
+            <p class="font-weight-bold">Hint: The password contains</p>
+              <div class="container">
+                <div class='row'>
+                  <div class='col-12 col-lg-4'>
+                    <p class='hint text-muted'>this letter</p>
+                    <p class='options'>{{hintLetter}}</p>
+                  </div>
+                  <div class='col-12 col-lg-4'>
+                    <p class='hint text-muted'>in position</p>
+                    <p class='options'>{{hintIndex}}</p>
+                  </div>
+                  <div class='col-12 col-lg-4'>
+                      <p class='hint text-muted'>tries remaining</p>
+                      <p class='options'>{{attempts}}</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li [ngClass]="{
+              'list-group-item': 'true',
+              'd-none': pickState !== 'pick'
+            }">
+                <span *ngFor="let word of results.picked; let i = index">
+                  <button *ngIf='disable[i]' type="button" class="btn btn-primary word-button disabled" disable>{{word.word}}</button>
+                  <button *ngIf='!disable[i]' type="button" class="btn btn-primary word-button" (click)='onClick(i)' >{{word.word}}</button>
+                </span>
+            </li>
+            <li [ngClass]="{
+              'list-group-item': 'true',
+              'd-none': pickState !== 'retry'
+            }">
+              <button type="button" class="btn btn-outline-primary" (click)="onRetry()">try another password</button>
+            </li>
+            </ul>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      
+    </div>
+  </div>
+</div>
+    
+
